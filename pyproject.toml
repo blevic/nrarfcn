@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nrarfcn"
+version = "1.0.0"
+authors = [
+  { name="Breno Levi", email="blevic@proton.me" },
+]
+description = "An NR-ARFCN calculator"
+readme = "README.md"
+license = { file="LICENSE" }
+requires-python = ">=3.3"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+keywords = ["nrarfcn", "arfcn", "rf", "radio", "frequency", "channel", "5g", "3gpp"]
+
+[project.urls]
+"Homepage" = "https://github.com/blevic/nrarfcn"
+"Bug Tracker" = "https://github.com/blevic/nrarfcn/issues"
