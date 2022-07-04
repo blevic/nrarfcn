@@ -15,7 +15,7 @@ pip install nrarfcn
 
 #### How do I use it?
 
-    >>> from nrarfcn.utils import get_frequency
+    >>> from nrarfcn import get_frequency
     >>> get_frequency(620000)
     3300.0
 
