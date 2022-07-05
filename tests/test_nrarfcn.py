@@ -1,5 +1,5 @@
 import unittest
-from .nrarfcn import get_frequency, get_nrarfcn
+from nrarfcn import get_frequency, get_nrarfcn
 
 
 class TestNrarfcn(unittest.TestCase):
