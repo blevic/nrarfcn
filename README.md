@@ -19,7 +19,7 @@ pip install nrarfcn
 >>> from nrarfcn import get_frequency, get_nrarfcn
 >>> get_frequency(620000)
 3300.0
-print(get_nrarfcn(27500.0))
+>>> get_nrarfcn(27500.0)
 2070832
 ```
 
