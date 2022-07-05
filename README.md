@@ -16,9 +16,11 @@ pip install nrarfcn
 ### How do I use it?
 
 ```python
->>> from nrarfcn import get_frequency
+>>> from nrarfcn import get_frequency, get_nrarfcn
 >>> get_frequency(620000)
 3300.0
+print(get_nrarfcn(27500.0))
+2070832
 ```
 
 ### Contributing
