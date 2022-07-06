@@ -1,4 +1,12 @@
 # 5G NR-ARFCN calculator
+<p align="left">
+  <a href='https://pypi.org/project/nrarfcn/'>
+    <img src='https://img.shields.io/pypi/v/nrarfcn' alt='PyPi Version' />
+  </a>
+  <a href='https://pypi.org/project/nrarfcn/'>
+    <img src='https://img.shields.io/pypi/dm/nrarfcn' alt='Downloads/Month' />
+  </a>
+</p>
 
 [``nrarfcn``](https://github.com/blevic/nrarfcn): your NR-ARFCN calculator, as a Python package.
 
