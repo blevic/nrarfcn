@@ -17,13 +17,19 @@ pip install nrarfcn
 ### How do I use it?
 
 ```python
->>> from nrarfcn import get_frequency, get_nrarfcn
+>>> import nrarfcn as nr
 
->>> get_frequency(620000)
+>>> nr.get_frequency(620000)
 3300.0
 
->>> get_nrarfcn(27500.0)
+>>> nr.get_nrarfcn(27500.0)
 2070832
+
+>>> nr.get_bands_by_frequency(1850.0)
+['n2', 'n3', 'n25']
+
+>>> nr.get_bands_by_frequency(617.0)
+['n71']
 ```
 
 ### Contributing
