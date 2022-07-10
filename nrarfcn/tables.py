@@ -1,6 +1,3 @@
-from typing import List
-
-
 class Table:
     def __init__(self, id: str, name: str, header: list, data: list):
         self.id = id
@@ -13,7 +10,7 @@ class Table:
         return row[idx]
 
 
-def _tables_data(key: str) -> Table:
+def tables_data(key: str) -> Table:
     table_id = 'freq_nrarfcn'
     table_name = "Table 5.4.2.1-1: NR-ARFCN parameters for the global frequency raster"
     table_header = ['F_min_MHz', 'F_max_MHz', 'DF_global_kHz', 'Fref_offs_MHz', 'Nref_offs', 'Nref_min', 'Nref_max']
@@ -100,117 +97,3 @@ def _tables_data(key: str) -> Table:
     }
 
     return tables.get(key)
-
-
-def get_frequency(nrarfcn: int) -> float:
-    """Gets the frequency of a given NR-ARFCN, in MHz.
-
-    Args:
-        nrarfcn: The NR-ARFCN to get the frequency of.
-
-    Returns:
-        The frequency of the given NR-ARFCN, in MHz.
-
-    Raises:
-        ValueError: If the NR-ARFCN is not valid.
-    """
-
-    table = _tables_data('freq_nrarfcn')
-
-    if not isinstance(nrarfcn, int):
-        raise ValueError('NR-ARFCN must be an integer.')
-
-    if nrarfcn < 0 or nrarfcn > 3_279_165:
-        raise ValueError('NR-ARFCN must be between 0 and 3,279,165.')
-
-    for row in table.data:
-        if table.get_cell(row, 'Nref_min') <= nrarfcn <= table.get_cell(row, 'Nref_max'):
-            f_offset = int(table.get_cell(row, 'Fref_offs_MHz') * 1000)
-            delta_f = table.get_cell(row, 'DF_global_kHz')
-            n_offset = table.get_cell(row, 'Nref_offs')
-            freq_khz = f_offset + delta_f * (nrarfcn - n_offset)
-            freq_mhz = freq_khz / 1000
-            return freq_mhz
-
-    raise ValueError('NR-ARFCN is not valid.')
-
-
-def get_nrarfcn(frequency: float) -> int:
-    """Gets the NR-ARFCN of a given frequency in MHz.
-
-    Args:
-        frequency: The frequency to get the NR-ARFCN of, in MHz.
-
-    Returns:
-        The NR-ARFCN of the given frequency.
-
-    Raises:
-        ValueError: If the frequency is not valid.
-    """
-
-    table = _tables_data('freq_nrarfcn')
-
-    if not isinstance(frequency, float) and not isinstance(frequency, int):
-        raise ValueError('Frequency must be a float or an integer.')
-
-    if frequency < 0 or frequency > 100_000:
-        raise ValueError('Frequency must be between 0 and 100,000 (MHz).')
-
-    for row in table.data:
-        if table.get_cell(row, 'F_min_MHz') <= frequency <= table.get_cell(row, 'F_max_MHz'):
-            f_offset = table.get_cell(row, 'Fref_offs_MHz')
-            delta_f = table.get_cell(row, 'DF_global_kHz')
-            n_offset = table.get_cell(row, 'Nref_offs')
-            nrarfcn = n_offset + (frequency - f_offset) * 1000. / delta_f
-            return min(round(nrarfcn), 3_279_165)
-
-    raise ValueError('Frequency is not valid.')
-
-
-def get_bands_by_frequency(frequency: float) -> List[str]:
-    """Lists the possible 5G-NR bands of a given frequency in MHz.
-
-    Args:
-        frequency: The frequency to get the bands of, in MHz.
-
-    Returns:
-        A list of the 5G-NR bands that the given frequency is in. Empty list if not in any NR band.
-
-    Raises:
-        ValueError: If the frequency is not an int and not a float, or out of NR-ARFCN defined range.
-    """
-
-    if not isinstance(frequency, float) and not isinstance(frequency, int):
-        raise ValueError('Frequency must be a float or an integer.')
-
-    if frequency < 0 or frequency > 100_000:
-        raise ValueError('Frequency must be between 0 and 100,000 (MHz).')
-
-    bands = []
-
-    table = _tables_data('bands_fr1')
-
-    for row in table.data:
-        ul_min = table.get_cell(row, 'F_UL_low')
-        ul_max = table.get_cell(row, 'F_UL_high')
-        dl_min = table.get_cell(row, 'F_DL_low')
-        dl_max = table.get_cell(row, 'F_DL_high')
-        ul_exists = not isinstance(ul_min, str) and not isinstance(ul_max, str)
-        dl_exists = not isinstance(dl_min, str) and not isinstance(dl_max, str)
-        condition_ul = ul_exists and ul_min <= frequency <= ul_max
-        condition_dl = dl_exists and dl_min <= frequency <= dl_max
-
-        if condition_ul or condition_dl:
-            bands.append(table.get_cell(row, 'Band'))
-
-    table = _tables_data('bands_fr2')
-
-    for row in table.data:
-        ul_dl_min = table.get_cell(row, 'F_UL_low')
-        ul_dl_max = table.get_cell(row, 'F_UL_high')
-        fr2_tdd_condition = ul_dl_min and ul_dl_min <= frequency <= ul_dl_max
-
-        if fr2_tdd_condition:
-            bands.append(table.get_cell(row, 'Band'))
-
-    return bands

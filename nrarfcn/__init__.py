@@ -1,1 +1,3 @@
-from nrarfcn.nrarfcn import get_frequency, get_nrarfcn, get_bands_by_frequency
+from nrarfcn.get_frequency import get_frequency
+from nrarfcn.get_nrarfcn import get_nrarfcn
+from nrarfcn.get_bands_by_frequency import get_bands_by_frequency
