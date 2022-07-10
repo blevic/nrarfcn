@@ -11,7 +11,7 @@ authors = [
 description = "A 5G NR-ARFCN calculator"
 readme = "README.md"
 license = { file="LICENSE" }
-requires-python = ">=3.3"
+requires-python = ">=3.6"
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
