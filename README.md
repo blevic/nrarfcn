@@ -8,7 +8,7 @@
   </a>
 </p>
 
-[``nrarfcn``](https://github.com/blevic/nrarfcn): your NR-ARFCN calculator, as a Python package.
+[``nrarfcn``](https://github.com/blevic/nrarfcn): a 5G NR-ARFCN calculator, as a Python package.
 
 ### What is it?
 
