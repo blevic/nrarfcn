@@ -24,7 +24,7 @@ def get_band_duplex_mode(band: Union[str, int]) -> str:
 
     for table in [table_fr1, table_fr2]:
         for row in table.data:
-            if band == table.get_cell(row, 'Band'):
-                return table.get_cell(row, 'Duplex_mode')
+            if band == table.get_cell(row, 'band'):
+                return table.get_cell(row, 'duplex_mode')
 
     raise ValueError(f"Band {band} not in table.")

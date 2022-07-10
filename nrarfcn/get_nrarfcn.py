@@ -23,10 +23,10 @@ def get_nrarfcn(frequency: float) -> int:
         raise ValueError('Frequency must be between 0 and 100,000 (MHz).')
 
     for row in table.data:
-        if table.get_cell(row, 'F_min_MHz') <= frequency <= table.get_cell(row, 'F_max_MHz'):
-            f_offset = table.get_cell(row, 'Fref_offs_MHz')
-            delta_f = table.get_cell(row, 'DF_global_kHz')
-            n_offset = table.get_cell(row, 'Nref_offs')
+        if table.get_cell(row, 'f_min') <= frequency <= table.get_cell(row, 'f_max'):
+            f_offset = table.get_cell(row, 'f_ref_offs')
+            delta_f = table.get_cell(row, 'df_global')
+            n_offset = table.get_cell(row, 'n_ref_offs')
             nrarfcn = n_offset + (frequency - f_offset) * 1000. / delta_f
             return min(round(nrarfcn), 3_279_165)
 

@@ -17,7 +17,7 @@ def tables_data(key: str) -> Table:
     table_release_3gpp = 0
     table_ts = ''
     table_name = "Table 5.4.2.1-1: NR-ARFCN parameters for the global frequency raster"
-    table_header = ['F_min_MHz', 'F_max_MHz', 'DF_global_kHz', 'Fref_offs_MHz', 'Nref_offs', 'Nref_min', 'Nref_max']
+    table_header = ['f_min', 'f_max', 'df_global', 'f_ref_offs', 'n_ref_offs', 'n_ref_min', 'n_ref_max']
     table_data = [
         [0, 3_000, 5, 0, 0, 0, 599_999],
         [3_000, 24_250, 15, 3_000, 600_000, 600_000, 2_016_666],
@@ -30,7 +30,7 @@ def tables_data(key: str) -> Table:
     table_release_3gpp = 0
     table_ts = ''
     table_name = "Table 5.2-1: NR operating bands in FR1"
-    table_header = ['Band', 'F_UL_low', 'F_UL_high', 'F_DL_low', 'F_DL_high', 'Duplex_mode']
+    table_header = ['band', 'f_ul_low', 'f_ul_high', 'f_dl_low', 'f_dl_high', 'duplex_mode']
     table_data = [
         ['n1', 1920, 1980, 2110, 2170, 'FDD'],
         ['n2', 1850, 1910, 1930, 1990, 'FDD'],
@@ -87,7 +87,7 @@ def tables_data(key: str) -> Table:
     table_release_3gpp = 0
     table_ts = ''
     table_name = "Table 5.2-2: NR operating bands in FR2"
-    table_header = ['Band', 'F_UL_low', 'F_UL_high', 'F_DL_low', 'F_DL_high', 'Duplex_mode']
+    table_header = ['band', 'f_ul_low', 'f_ul_high', 'f_dl_low', 'f_dl_high', 'duplex_mode']
     table_data = [
         ['n257', 26500, 29500, 26500, 29500, 'TDD'],
         ['n258', 24250, 27500, 24250, 27500, 'TDD'],

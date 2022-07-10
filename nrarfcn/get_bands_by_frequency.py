@@ -26,26 +26,26 @@ def get_bands_by_frequency(frequency: float) -> List[str]:
     table = tables_data('bands_fr1')
 
     for row in table.data:
-        ul_min = table.get_cell(row, 'F_UL_low')
-        ul_max = table.get_cell(row, 'F_UL_high')
-        dl_min = table.get_cell(row, 'F_DL_low')
-        dl_max = table.get_cell(row, 'F_DL_high')
+        ul_min = table.get_cell(row, 'f_ul_low')
+        ul_max = table.get_cell(row, 'f_ul_high')
+        dl_min = table.get_cell(row, 'f_dl_low')
+        dl_max = table.get_cell(row, 'f_dl_high')
         ul_exists = not isinstance(ul_min, str) and not isinstance(ul_max, str)
         dl_exists = not isinstance(dl_min, str) and not isinstance(dl_max, str)
         condition_ul = ul_exists and ul_min <= frequency <= ul_max
         condition_dl = dl_exists and dl_min <= frequency <= dl_max
 
         if condition_ul or condition_dl:
-            bands.append(table.get_cell(row, 'Band'))
+            bands.append(table.get_cell(row, 'band'))
 
     table = tables_data('bands_fr2')
 
     for row in table.data:
-        ul_dl_min = table.get_cell(row, 'F_UL_low')
-        ul_dl_max = table.get_cell(row, 'F_UL_high')
+        ul_dl_min = table.get_cell(row, 'f_ul_low')
+        ul_dl_max = table.get_cell(row, 'f_ul_high')
         fr2_tdd_condition = ul_dl_min and ul_dl_min <= frequency <= ul_dl_max
 
         if fr2_tdd_condition:
-            bands.append(table.get_cell(row, 'Band'))
+            bands.append(table.get_cell(row, 'band'))
 
     return bands
