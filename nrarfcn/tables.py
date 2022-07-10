@@ -1,6 +1,8 @@
 class Table:
-    def __init__(self, id: str, name: str, header: list, data: list):
+    def __init__(self, id: str, release_3gpp: int, ts: str, name: str, header: list, data: list):
         self.id = id
+        self.release_3gpp = release_3gpp
+        self.ts = ts
         self.name = name
         self.header = header
         self.data = data
@@ -12,6 +14,8 @@ class Table:
 
 def tables_data(key: str) -> Table:
     table_id = 'freq_nrarfcn'
+    table_release_3gpp = 0
+    table_ts = ''
     table_name = "Table 5.4.2.1-1: NR-ARFCN parameters for the global frequency raster"
     table_header = ['F_min_MHz', 'F_max_MHz', 'DF_global_kHz', 'Fref_offs_MHz', 'Nref_offs', 'Nref_min', 'Nref_max']
     table_data = [
@@ -20,9 +24,11 @@ def tables_data(key: str) -> Table:
         [24_250, 100_000, 60, 24_250.08, 2_016_667, 2_016_667, 3_279_165]
     ]
 
-    table_freq_nrarfcn = Table(table_id, table_name, table_header, table_data)
+    table_freq_nrarfcn = Table(table_id, table_release_3gpp, table_ts, table_name, table_header, table_data)
 
     table_id = 'bands_fr1'
+    table_release_3gpp = 0
+    table_ts = ''
     table_name = "Table 5.2-1: NR operating bands in FR1"
     table_header = ['Band', 'F_UL_low', 'F_UL_high', 'F_DL_low', 'F_DL_high', 'Duplex_mode']
     table_data = [
@@ -75,9 +81,11 @@ def tables_data(key: str) -> Table:
         ['n95', 2010, 2025, 'N/A', 'N/A', 'SUL']
     ]
 
-    table_bands_fr1 = Table(table_id, table_name, table_header, table_data)
+    table_bands_fr1 = Table(table_id, table_release_3gpp, table_ts, table_name, table_header, table_data)
 
     table_id = 'bands_fr2'
+    table_release_3gpp = 0
+    table_ts = ''
     table_name = "Table 5.2-2: NR operating bands in FR2"
     table_header = ['Band', 'F_UL_low', 'F_UL_high', 'F_DL_low', 'F_DL_high', 'Duplex_mode']
     table_data = [
@@ -88,10 +96,12 @@ def tables_data(key: str) -> Table:
         ['n261', 27500, 28350, 27500, 28350, 'TDD']
     ]
 
-    table_bands_fr2 = Table(table_id, table_name, table_header, table_data)
+    table_bands_fr2 = Table(table_id, table_release_3gpp, table_ts, table_name, table_header, table_data)
 
     table_id = 'applicable_nrarfcn_fr1'
-    table_name = "Table 5.4.2.3-1: Applicable NR-ARFCN per operating band in FR1"  # release 17, v17.6.0
+    table_release_3gpp = 17
+    table_ts = "3GPP TS 38.104 V17.6.0"
+    table_name = "Table 5.4.2.3-1: Applicable NR-ARFCN per operating band in FR1"
     table_header = ['band', 'f_raster', 'ul_first', 'ul_step', 'ul_range', 'dl_first', 'dl_step', 'dl_range']
     table_data = [
         ['n1', 100, 384000, 20, 396000, 422000, 20, 434000],
@@ -164,10 +174,12 @@ def tables_data(key: str) -> Table:
         ['n104', 30, 828334, 2, 875000, 828334, 2, 875000]
     ]
 
-    table_applicable_nrarfcn_fr1 = Table(table_id, table_name, table_header, table_data)
+    table_applicable_nrarfcn_fr1 = Table(table_id, table_release_3gpp, table_ts, table_name, table_header, table_data)
 
     table_id = 'applicable_nrarfcn_fr2'
-    table_name = "Table 5.4.2.3-2: Applicable NR-ARFCN per operating band in FR2"  # release 17, v17.6.0
+    table_release_3gpp = 17
+    table_ts = "3GPP TS 38.104 V17.6.0"
+    table_name = "Table 5.4.2.3-2: Applicable NR-ARFCN per operating band in FR2"
     table_header = ['band', 'f_raster', 'ul_first', 'ul_step', 'ul_range', 'dl_first', 'dl_step', 'dl_range']
     table_data = [
         ['n257', 60, 2054166, 1, 2104165, 2054166, 1, 2104165],
@@ -186,8 +198,9 @@ def tables_data(key: str) -> Table:
         ['n263', 480, 2566603, 6720, 2788363, 2566603, 6720, 2788363],
         ['n263', 960, 2566603, 6720, 2788363, 2566603, 6720, 2788363]
     ]
+    #  refer to 3GPP TS38.104 v17.6.0 tables 5.3.5-3 5.4.2.3-3 for n263 info
 
-    table_applicable_nrarfcn_fr2 = Table(table_id, table_name, table_header, table_data)
+    table_applicable_nrarfcn_fr2 = Table(table_id, table_release_3gpp, table_ts, table_name, table_header, table_data)
 
     tables = {
         'freq_nrarfcn': table_freq_nrarfcn,
