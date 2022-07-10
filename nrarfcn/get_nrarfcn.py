@@ -1,5 +1,6 @@
 from nrarfcn.tables import tables_data
 
+
 def get_nrarfcn(frequency: float) -> int:
     """Gets the NR-ARFCN of a given frequency in MHz.
 
