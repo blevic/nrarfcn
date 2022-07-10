@@ -50,4 +50,4 @@ By the way, hi there! I'm Breno. Follow me on github: [@blevic](https://github.c
 
 ### License
 
-This software is licensed under the [MIT license](LICENSE).
+This software is licensed under the [MIT license](https://github.com/blevic/nrarfcn/blob/main/LICENSE).
