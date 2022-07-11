@@ -6,6 +6,10 @@
   <a href='https://pypi.org/project/nrarfcn/'>
     <img src='https://img.shields.io/pypi/dm/nrarfcn' alt='Downloads/Month' />
   </a>
+  </a>
+    <a href='https://github.com/blevic/nrarfcn/actions/workflows/package-tests.yml'>
+    <img src='https://github.com/blevic/nrarfcn/actions/workflows/package-tests.yml/badge.svg?branch=main' alt='Package Tests' />
+  </a>
 </p>
 
 [``nrarfcn``](https://github.com/blevic/nrarfcn): a 5G NR-ARFCN calculator, as a Python package.
