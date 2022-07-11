@@ -115,3 +115,50 @@ class TestGetBandsByNrarfcn(unittest.TestCase):
         for channel in invalid_channels:
             with self.assertRaises(ValueError):
                 get_bands_by_nrarfcn(channel)
+
+    def test_no_bands(self):
+        no_band = [
+            0,
+            123399,
+            130401,
+            132599,
+            183001,
+            183879,
+            192001,
+            285399,
+            303601,
+            304999,
+            311801,
+            325299,
+            332101,
+            338999,
+            357001,
+            360999,
+            405001,
+            421999,
+            440001,
+            459999,
+            480001,
+            496699,
+            499001,
+            499199,
+            538001,
+            619999,
+            680001,
+            693333,
+            733334,
+            743333,
+            875001,
+            2016666,
+            2104166,
+            2229165,
+            2337500,
+            2399165,
+            2415833,
+            2562498,
+            2795833,
+            3279165
+        ]
+
+        for channel in no_band:
+            self.assertListEqual([], get_bands_by_nrarfcn(channel))
