@@ -40,8 +40,11 @@ pip install nrarfcn
 >>> nr.get_bands_by_frequency(1850.0)
 ['n2', 'n3', 'n25']
 
->>> nr.get_bands_by_frequency(617.0)
-['n71']
+>>> nr.get_bands_by_nrarfcn(2564083)
+['n263']
+
+>>> nr.get_duplex_mode('n71')
+'FDD'
 ```
 
 ### Contributing
