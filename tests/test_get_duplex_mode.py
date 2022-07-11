@@ -1,8 +1,8 @@
 import unittest
-from nrarfcn import get_band_duplex_mode
+from nrarfcn import get_duplex_mode
 
 
-class TestGetBandDuplexMode(unittest.TestCase):
+class TestGetDuplexMode(unittest.TestCase):
     def test_str_bands(self):
         str_bands_duplex_mode = {
             'n1': 'FDD',
@@ -60,7 +60,7 @@ class TestGetBandDuplexMode(unittest.TestCase):
         }
 
         for band, duplex_mode in str_bands_duplex_mode.items():
-            self.assertEqual(get_band_duplex_mode(band), duplex_mode)
+            self.assertEqual(get_duplex_mode(band), duplex_mode)
 
     def test_int_bands(self):
         int_bands_duplex_mode = {
@@ -119,7 +119,7 @@ class TestGetBandDuplexMode(unittest.TestCase):
         }
 
         for band, duplex_mode in int_bands_duplex_mode.items():
-            self.assertEqual(get_band_duplex_mode(band), duplex_mode)
+            self.assertEqual(get_duplex_mode(band), duplex_mode)
 
     def test_invalid_band(self):
         invalid_bands = [
@@ -139,4 +139,4 @@ class TestGetBandDuplexMode(unittest.TestCase):
 
         for band in invalid_bands:
             with self.assertRaises(ValueError):
-                get_band_duplex_mode(band)
+                get_duplex_mode(band)
