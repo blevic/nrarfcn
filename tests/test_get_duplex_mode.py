@@ -4,152 +4,42 @@ from nrarfcn import get_duplex_mode
 
 class TestGetDuplexMode(unittest.TestCase):
     def test_str_bands(self):
-        str_bands_duplex_mode = {
-            'n1': 'FDD',
-            'n2': 'FDD',
-            'n3': 'FDD',
-            'n5': 'FDD',
-            'n7': 'FDD',
-            'n8': 'FDD',
-            'n12': 'FDD',
-            'n13': 'FDD',
-            'n14': 'FDD',
-            'n18': 'FDD',
-            'n20': 'FDD',
-            'n24': 'FDD',
-            'n25': 'FDD',
-            'n26': 'FDD',
-            'n28': 'FDD',
-            'n29': 'SDL',
-            'n30': 'FDD',
-            'n34': 'TDD',
-            'n38': 'TDD',
-            'n39': 'TDD',
-            'n40': 'TDD',
-            'n41': 'TDD',
-            'n46': 'TDD',
-            'n48': 'TDD',
-            'n50': 'TDD',
-            'n51': 'TDD',
-            'n53': 'TDD',
-            'n65': 'FDD',
-            'n66': 'FDD',
-            'n67': 'SDL',
-            'n70': 'FDD',
-            'n71': 'FDD',
-            'n74': 'FDD',
-            'n75': 'SDL',
-            'n76': 'SDL',
-            'n77': 'TDD',
-            'n78': 'TDD',
-            'n79': 'TDD',
-            'n80': 'SUL',
-            'n81': 'SUL',
-            'n82': 'SUL',
-            'n83': 'SUL',
-            'n84': 'SUL',
-            'n85': 'FDD',
-            'n86': 'SUL',
-            'n89': 'SUL',
-            'n90': 'TDD',
-            'n91': 'FDD',
-            'n92': 'FDD',
-            'n93': 'FDD',
-            'n94': 'FDD',
-            'n95': 'SUL',
-            'n96': 'TDD',
-            'n97': 'SUL',
-            'n98': 'SUL',
-            'n99': 'SUL',
-            'n100': 'FDD',
-            'n101': 'TDD',
-            'n102': 'TDD',
-            'n104': 'TDD',
-            'n257': 'TDD',
-            'n258': 'TDD',
-            'n259': 'TDD',
-            'n260': 'TDD',
-            'n261': 'TDD',
-            'n262': 'TDD',
-            'n263': 'TDD'
+        fdd_bands = ['n1', 'n2', 'n3', 'n5', 'n7', 'n8', 'n12', 'n13', 'n14', 'n18', 'n20', 'n24', 'n25', 'n26', 'n28',
+                     'n30', 'n65', 'n66', 'n70', 'n71', 'n74', 'n85', 'n91', 'n92', 'n93', 'n94', 'n100']
+        tdd_bands = ['n34', 'n38', 'n39', 'n40', 'n41', 'n46', 'n48', 'n50', 'n51', 'n53', 'n77', 'n78', 'n79', 'n90',
+                     'n96', 'n101', 'n102', 'n104', 'n257', 'n258', 'n259', 'n260', 'n261', 'n262', 'n263']
+        sdl_bands = ['n29', 'n67', 'n75', 'n76']
+        sul_bands = ['n80', 'n81', 'n82', 'n83', 'n84', 'n86', 'n89', 'n95', 'n97', 'n98', 'n99']
+
+        mode_bands_map = {
+            'FDD': fdd_bands,
+            'TDD': tdd_bands,
+            'SDL': sdl_bands,
+            'SUL': sul_bands
         }
 
-        for band, duplex_mode in str_bands_duplex_mode.items():
-            self.assertEqual(get_duplex_mode(band), duplex_mode)
+        for mode, bands in mode_bands_map.items():
+            for band in bands:
+                self.assertEqual(get_duplex_mode(band), mode)
 
     def test_int_bands(self):
-        int_bands_duplex_mode = {
-            1: 'FDD',
-            2: 'FDD',
-            3: 'FDD',
-            5: 'FDD',
-            7: 'FDD',
-            8: 'FDD',
-            12: 'FDD',
-            13: 'FDD',
-            14: 'FDD',
-            18: 'FDD',
-            20: 'FDD',
-            24: 'FDD',
-            25: 'FDD',
-            26: 'FDD',
-            28: 'FDD',
-            29: 'SDL',
-            30: 'FDD',
-            34: 'TDD',
-            38: 'TDD',
-            39: 'TDD',
-            40: 'TDD',
-            41: 'TDD',
-            46: 'TDD',
-            48: 'TDD',
-            50: 'TDD',
-            51: 'TDD',
-            53: 'TDD',
-            65: 'FDD',
-            66: 'FDD',
-            67: 'SDL',
-            70: 'FDD',
-            71: 'FDD',
-            74: 'FDD',
-            75: 'SDL',
-            76: 'SDL',
-            77: 'TDD',
-            78: 'TDD',
-            79: 'TDD',
-            80: 'SUL',
-            81: 'SUL',
-            82: 'SUL',
-            83: 'SUL',
-            84: 'SUL',
-            85: 'FDD',
-            86: 'SUL',
-            89: 'SUL',
-            90: 'TDD',
-            91: 'FDD',
-            92: 'FDD',
-            93: 'FDD',
-            94: 'FDD',
-            95: 'SUL',
-            96: 'TDD',
-            97: 'SUL',
-            98: 'SUL',
-            99: 'SUL',
-            100: 'FDD',
-            101: 'TDD',
-            102: 'TDD',
-            104: 'TDD',
-            257: 'TDD',
-            258: 'TDD',
-            259: 'TDD',
-            260: 'TDD',
-            261: 'TDD',
-            262: 'TDD',
-            263: 'TDD'
+        fdd_bands = [1, 2, 3, 5, 7, 8, 12, 13, 14, 18, 20, 24, 25, 26, 28, 30, 65, 66, 70, 71, 74, 85, 91, 92, 93, 94,
+                     100]
+        tdd_bands = [34, 38, 39, 40, 41, 46, 48, 50, 51, 53, 77, 78, 79, 90, 96, 101, 102, 104, 257, 258, 259, 260, 261,
+                     262, 263]
+        sdl_bands = [29, 67, 75, 76]
+        sul_bands = [80, 81, 82, 83, 84, 86, 89, 95, 97, 98, 99]
+
+        mode_bands_map = {
+            'FDD': fdd_bands,
+            'TDD': tdd_bands,
+            'SDL': sdl_bands,
+            'SUL': sul_bands
         }
 
-        for band, duplex_mode in int_bands_duplex_mode.items():
-            self.assertEqual(get_duplex_mode(band), duplex_mode)
+        for mode, bands in mode_bands_map.items():
+            for band in bands:
+                self.assertEqual(get_duplex_mode(band), mode)
 
     def test_invalid_band(self):
         invalid_bands = [
