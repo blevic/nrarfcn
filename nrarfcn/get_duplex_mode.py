@@ -2,7 +2,7 @@ from typing import Union
 from nrarfcn.tables import tables_data
 
 
-def get_band_duplex_mode(band: Union[str, int]) -> str:
+def get_duplex_mode(band: Union[str, int]) -> str:
     """Gets the duplex mode for a given band.
 
     Args:
