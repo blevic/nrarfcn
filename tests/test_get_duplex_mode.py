@@ -42,20 +42,7 @@ class TestGetDuplexMode(unittest.TestCase):
                 self.assertEqual(get_duplex_mode(band), mode)
 
     def test_invalid_band(self):
-        invalid_bands = [
-            'n4',
-            4,
-            'n6',
-            6,
-            0,
-            1.0,
-            -1,
-            'n0',
-            64,
-            256,
-            'n',
-            ''
-        ]
+        invalid_bands = ['n4', 4, 'n6', 6, 0, 1.0, -1, 'n0', 64, 256, 'n', '']
 
         for band in invalid_bands:
             with self.assertRaises(ValueError):
