@@ -195,17 +195,7 @@ class TestGetBandsByFrequency(unittest.TestCase):
             self.assertListEqual(bands, get_bands_by_frequency(freq))
 
     def test_invalid_freqs(self):
-        invalid_freqs = {
-            -1.0,
-            -1,
-            -0.01,
-            100000.01,
-            100001,
-            100001.0,
-            None,
-            '',
-            '60000'
-        }
+        invalid_freqs = [-1.0, -1, -0.01, 100000.01, 100001, 100001.0, None, '', '60000']
 
         for freq in invalid_freqs:
             with self.assertRaises(ValueError):

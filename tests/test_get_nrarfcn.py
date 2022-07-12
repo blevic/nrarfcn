@@ -51,17 +51,7 @@ class TestGetNrarfcn(unittest.TestCase):
             self.assertNotEqual(get_nrarfcn(f1), get_nrarfcn(f2))
 
     def test_invalid_freqs(self):
-        invalid_freqs = [
-            -1.0,
-            -1,
-            -0.01,
-            100000.01,
-            100001,
-            100001.0,
-            None,
-            '',
-            '60000'
-        ]
+        invalid_freqs = [-1.0, -1, -0.01, 100000.01, 100001, 100001.0, None, '', '60000']
 
         for freq in invalid_freqs:
             with self.assertRaises(ValueError):

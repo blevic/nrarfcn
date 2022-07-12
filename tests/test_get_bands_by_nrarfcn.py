@@ -103,14 +103,7 @@ class TestGetBandsByNrarfcn(unittest.TestCase):
             self.assertListEqual(bands, get_bands_by_nrarfcn(channel))
 
     def test_invalid_channels(self):
-        invalid_channels = [
-            -1,
-            3279166,
-            1.0,
-            None,
-            '',
-            '600000',
-        ]
+        invalid_channels = [-1, 3279166, 1.0, None, '', '600000']
 
         for channel in invalid_channels:
             with self.assertRaises(ValueError):

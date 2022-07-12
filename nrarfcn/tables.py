@@ -7,6 +7,10 @@ class Table:
         self.header = header
         self.data = data
 
+    def get_column(self, column_name: str) -> list:
+        idx = self.header.index(column_name)
+        return [row[idx] for row in self.data]
+
     def get_cell(self, row: list, key: str):
         idx = self.header.index(key)
         return row[idx]
@@ -117,7 +121,7 @@ def tables_data(key: str) -> Table:
     table_release_3gpp = 17
     table_ts = "3GPP TS 38.104 V17.6.0"
     table_name = "Table 5.4.2.3-1: Applicable NR-ARFCN per operating band in FR1"
-    table_header = ['band', 'f_raster', 'ul_first', 'ul_step', 'ul_range', 'dl_first', 'dl_step', 'dl_range']
+    table_header = ['band', 'f_raster', 'ul_first', 'ul_step', 'ul_last', 'dl_first', 'dl_step', 'dl_last']
     table_data = [
         ['n1', 100, 384000, 20, 396000, 422000, 20, 434000],
         ['n2', 100, 370000, 20, 382000, 386000, 20, 398000],
@@ -195,7 +199,7 @@ def tables_data(key: str) -> Table:
     table_release_3gpp = 17
     table_ts = "3GPP TS 38.104 V17.6.0"
     table_name = "Table 5.4.2.3-2: Applicable NR-ARFCN per operating band in FR2"
-    table_header = ['band', 'f_raster', 'ul_first', 'ul_step', 'ul_range', 'dl_first', 'dl_step', 'dl_range']
+    table_header = ['band', 'f_raster', 'ul_first', 'ul_step', 'ul_last', 'dl_first', 'dl_step', 'dl_last']
     table_data = [
         ['n257', 60, 2054166, 1, 2104165, 2054166, 1, 2104165],
         ['n257', 120, 2054167, 2, 2104165, 2054167, 2, 2104165],
