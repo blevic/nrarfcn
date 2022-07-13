@@ -1,6 +1,7 @@
 import unittest
 from nrarfcn import get_bands_by_nrarfcn
 
+
 class TestGetBandsByNrarfcn(unittest.TestCase):
     def test_valid_channels(self):
         channel_band_dict = {
