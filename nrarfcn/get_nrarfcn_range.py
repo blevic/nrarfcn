@@ -1,7 +1,8 @@
+from typing import Union
 from nrarfcn.tables import tables_data
 
 
-def get_nrarfcn_range(band: str, direction='') -> tuple:
+def get_nrarfcn_range(band: Union[str, int], direction='') -> tuple:
     """Gets the NR-ARFCN range for a given band.
 
     Args:
@@ -13,7 +14,7 @@ def get_nrarfcn_range(band: str, direction='') -> tuple:
         A tuple with the min NR-ARFCN and max NR-ARFCN for the given band and direction
 
     Raises:
-        ValueError: If the given band is not a valid band or if the direction is not valid.
+        ValueError: If the given band is not a valid band.
     """
     table_fr1 = tables_data('applicable_nrarfcn_fr1')
     table_fr2 = tables_data('applicable_nrarfcn_fr2')

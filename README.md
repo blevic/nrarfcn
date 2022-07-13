@@ -45,6 +45,12 @@ pip install nrarfcn
 
 >>> nr.get_duplex_mode('n71')
 'FDD'
+
+>>> get_nrarfcn_range('n25', direction='ul')
+(370000, 383000)
+
+>>> get_nrarfcn_range('n25', direction='dl')
+(386000, 399000)
 ```
 
 ### Contributing
