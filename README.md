@@ -49,8 +49,8 @@ pip install nrarfcn
 >>> get_nrarfcn_range('n25', direction='ul')
 (370000, 383000)
 
->>> get_nrarfcn_range('n25', direction='dl')
-(386000, 399000)
+>>> get_frequency_range('n100', direction='dl')
+(919.4, 925)
 ```
 
 ### Contributing

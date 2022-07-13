@@ -4,3 +4,4 @@ from nrarfcn.get_bands_by_frequency import get_bands_by_frequency
 from nrarfcn.get_bands_by_nrarfcn import get_bands_by_nrarfcn
 from nrarfcn.get_duplex_mode import get_duplex_mode
 from nrarfcn.get_nrarfcn_range import get_nrarfcn_range
+from nrarfcn.get_frequency_range import get_frequency_range
