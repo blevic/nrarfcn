@@ -10,23 +10,28 @@
     <a href='https://github.com/blevic/nrarfcn/actions/workflows/package-tests.yml'>
     <img src='https://github.com/blevic/nrarfcn/actions/workflows/package-tests.yml/badge.svg?branch=main' alt='Package Tests' />
   </a>
+  <a href='https://nrarfcn.readthedocs.io/en/latest/?badge=latest'>
+    <img src='https://readthedocs.org/projects/nrarfcn/badge/?version=latest' alt='Documentation Status' />
+  </a>
 </p>
 
 [``nrarfcn``](https://github.com/blevic/nrarfcn): a 5G NR-ARFCN calculator, as a Python package.
-
-### What is it?
 
 This is a Python package that calculates the frequency for a given NR-ARFCN, the NR-ARFCN for a given frequency, and related NR band information, according to 3GPP **Rel-17**.
 
 It follows [3GPP TS 38.104](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3202) v17.6.0: "_5G; NR; Base Station (BS) radio transmission and reception_".
 
-### How do I install it?
+### Documentation
+
+[``nrarfcn``](https://github.com/blevic/nrarfcn) is documented on: [nrarfcn.rtfd.io](https://nrarfcn.rtfd.io/).
+
+### Installation
 
 ```bash
 pip install nrarfcn
 ```
 
-### How do I use it?
+### Usage
 
 ```python
 >>> import nrarfcn as nr
@@ -55,7 +60,7 @@ pip install nrarfcn
 
 ### Contributing
 
-Make any requests, raise any issues, create pull requests, or directly contact me on [github.com/blevic/nrarfcn](https://github.com/blevic/nrarfcn). I'll be happy to help.
+Every contribution is welcome. Make any requests, raise any issues, create pull requests, or directly contact me on [github.com/blevic/nrarfcn](https://github.com/blevic/nrarfcn). I'll be happy to help.
 
 ### Author
 
