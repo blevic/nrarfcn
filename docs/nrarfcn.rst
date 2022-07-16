@@ -60,14 +60,6 @@ nrarfcn.get\_nrarfcn\_range module
    :undoc-members:
    :show-inheritance:
 
-nrarfcn.tables module
----------------------
-
-.. automodule:: nrarfcn.tables
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 
