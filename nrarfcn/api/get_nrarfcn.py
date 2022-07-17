@@ -1,4 +1,4 @@
-from nrarfcn.tables import tables_data
+from nrarfcn.tables.freq_nrarfcn import table_freq_nrarfcn
 
 
 def get_nrarfcn(frequency: float) -> int:
@@ -14,7 +14,7 @@ def get_nrarfcn(frequency: float) -> int:
         ValueError: If the frequency is not valid.
     """
 
-    table = tables_data('freq_nrarfcn')
+    table = table_freq_nrarfcn()
 
     if not isinstance(frequency, float) and not isinstance(frequency, int):
         raise ValueError('Frequency must be a float or an integer.')
