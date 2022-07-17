@@ -72,7 +72,7 @@ def table_applicable_ss_raster_fr1() -> Table:
         ['n101', 15, 'A', 4754, 1, 4768, {}],
         ['n101', 30, 'C', 4760, 1, 4764, {}],
         ['n102', 30, 'C', 9531, 1, 9877, {}],
-        ['n104', 30, 'C', 9882, 7, 10358, {}],
+        ['n104', 30, 'C', 9882, 7, 10358, {}]
     ]
 
     return Table(table_id, table_release_3gpp, table_ts, table_name, table_header, table_data)
