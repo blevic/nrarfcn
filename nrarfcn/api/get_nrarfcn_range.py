@@ -1,6 +1,6 @@
 from typing import Union
-from tables.applicable_nrarfcn_fr1 import table_applicable_nrarfcn_fr1
-from tables.applicable_nrarfcn_fr2 import table_applicable_nrarfcn_fr2
+from nrarfcn.tables.applicable_nrarfcn_fr1 import table_applicable_nrarfcn_fr1
+from nrarfcn.tables.applicable_nrarfcn_fr2 import table_applicable_nrarfcn_fr2
 
 
 def get_nrarfcn_range(band: Union[str, int], direction='') -> tuple:

@@ -1,6 +1,6 @@
 from typing import List
-from tables.bands_fr1 import table_bands_fr1
-from tables.bands_fr2 import table_bands_fr2
+from nrarfcn.tables.bands_fr1 import table_bands_fr1
+from nrarfcn.tables.bands_fr2 import table_bands_fr2
 
 
 def get_bands_by_frequency(frequency: float) -> List[str]:

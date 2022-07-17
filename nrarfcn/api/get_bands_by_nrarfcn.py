@@ -1,5 +1,5 @@
-from api.get_bands_by_frequency import get_bands_by_frequency
-from api.get_frequency import get_frequency
+from nrarfcn.api.get_bands_by_frequency import get_bands_by_frequency
+from nrarfcn.api.get_frequency import get_frequency
 
 
 def get_bands_by_nrarfcn(nrarfcn: int) -> list:

@@ -1,4 +1,4 @@
-from tables.freq_nrarfcn import table_freq_nrarfcn
+from nrarfcn.tables.freq_nrarfcn import table_freq_nrarfcn
 
 
 def get_frequency(nrarfcn: int) -> float:

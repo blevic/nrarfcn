@@ -1,4 +1,4 @@
-from tables.Table import Table
+from nrarfcn.tables.Table import Table
 
 
 def table_bands_fr1() -> Table:
