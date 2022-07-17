@@ -1,5 +1,6 @@
 from typing import List
-from nrarfcn.tables import tables_data
+from tables.bands_fr1 import table_bands_fr1
+from tables.bands_fr2 import table_bands_fr2
 
 
 def get_bands_by_frequency(frequency: float) -> List[str]:
@@ -23,7 +24,7 @@ def get_bands_by_frequency(frequency: float) -> List[str]:
 
     bands = []
 
-    table = tables_data('bands_fr1')
+    table = table_bands_fr1()
 
     for row in table.data:
         ul_min = table.get_cell(row, 'f_ul_low')
@@ -38,7 +39,7 @@ def get_bands_by_frequency(frequency: float) -> List[str]:
         if condition_ul or condition_dl:
             bands.append(table.get_cell(row, 'band'))
 
-    table = tables_data('bands_fr2')
+    table = table_bands_fr2()
 
     for row in table.data:
         ul_dl_min = table.get_cell(row, 'f_ul_low')
