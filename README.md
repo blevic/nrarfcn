@@ -56,6 +56,15 @@ pip install nrarfcn
 
 >>> nr.get_frequency_range('n100', direction='dl')
 (919.4, 925)
+
+>>> nr.get_frequency_by_gscn(2156)
+862.85
+
+>>> nr.get_gscn_by_frequency(4405.440)
+8475
+
+>>> nr.get_gscn_range('n92')
+(3584, 3787)
 ```
 
 ### Contributing
