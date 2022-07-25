@@ -25,7 +25,8 @@ def get_frequency_by_gscn(gscn: int) -> float:
         if table.get_cell(row, 'gscn_min') <= gscn <= table.get_cell(row, 'gscn_max'):
             if table.get_cell(row, 'm_set') == {}:
                 n = gscn - table.get_cell(row, 'g_offs')
-                return table.get_cell(row, 'f_offs') + table.get_cell(row, 'n_coeff') * n
+                freq = table.get_cell(row, 'f_offs') + table.get_cell(row, 'n_coeff') * n
+                return round(freq, 3)
             else:
                 if gscn % 3 == 0:
                     n = gscn // table.get_cell(row, 'g_n_coeff')
@@ -37,6 +38,7 @@ def get_frequency_by_gscn(gscn: int) -> float:
                     n = (gscn + 1) // table.get_cell(row, 'g_n_coeff')
                     m = 1
 
-                return table.get_cell(row, 'f_offs') + table.get_cell(row, 'n_coeff') * n + table.get_cell(row, 'm_coeff') * m
+                freq = table.get_cell(row, 'f_offs') + table.get_cell(row, 'n_coeff') * n + table.get_cell(row, 'm_coeff') * m
+                return round(freq, 3)
 
     raise ValueError("Expected to have found a GSCN in the table, but didn't")

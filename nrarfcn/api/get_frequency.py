@@ -29,6 +29,6 @@ def get_frequency(nrarfcn: int) -> float:
             n_offset = table.get_cell(row, 'n_ref_offs')
             freq_khz = f_offset + delta_f * (nrarfcn - n_offset)
             freq_mhz = freq_khz / 1000
-            return freq_mhz
+            return round(freq_mhz, 3)
 
     raise ValueError('NR-ARFCN is not valid.')
