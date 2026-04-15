@@ -1,11 +1,12 @@
-from nrarfcn.tables.gscn_parameters import table_gscn_parameters
+from nrarfcn.tables import DEFAULT_RELEASE, get_table
 
 
-def get_frequency_by_gscn(gscn: int) -> float:
+def get_frequency_by_gscn(gscn: int, release_3gpp: int = DEFAULT_RELEASE) -> float:
     """Gets the frequency of a given GSCN (Global Synchronization Channel Number), in MHz.
 
     Args:
         gscn: The GSCN to get the frequency of.
+        release_3gpp: The 3GPP release to use for table lookup.
 
     Returns:
         The frequency of the given GSCN, in MHz.
@@ -19,7 +20,7 @@ def get_frequency_by_gscn(gscn: int) -> float:
     if gscn < 2 or gscn > 26639:
         raise ValueError("GSCN must be between 2 and 26639")
 
-    table = table_gscn_parameters()
+    table = get_table('gscn_parameters', release_3gpp)
 
     for row in table.data:
         if table.get_cell(row, 'gscn_min') <= gscn <= table.get_cell(row, 'gscn_max'):

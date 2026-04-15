@@ -1,13 +1,13 @@
 from typing import Union
-from nrarfcn.tables.applicable_ss_raster_fr1 import table_applicable_ss_raster_fr1
-from nrarfcn.tables.applicable_ss_raster_fr2 import table_applicable_ss_raster_fr2
+from nrarfcn.tables import DEFAULT_RELEASE, get_table
 
 
-def get_gscn_range(band: Union[str, int]) -> tuple:
+def get_gscn_range(band: Union[str, int], release_3gpp: int = DEFAULT_RELEASE) -> tuple:
     """Gets the GSCN range for a given band.
 
     Args:
         band: The band to get the range for, e.g. 'n12' or 12.
+        release_3gpp: The 3GPP release to use for table lookup.
 
     Returns:
         A tuple with the min GSCN and max GSCN for the given band.
@@ -15,8 +15,8 @@ def get_gscn_range(band: Union[str, int]) -> tuple:
     Raises:
         ValueError: If the given band is not a valid band.
     """
-    table_fr1 = table_applicable_ss_raster_fr1()
-    table_fr2 = table_applicable_ss_raster_fr2()
+    table_fr1 = get_table('applicable_ss_raster_fr1', release_3gpp)
+    table_fr2 = get_table('applicable_ss_raster_fr2', release_3gpp)
 
     valid_bands = table_fr1.get_column('band') + table_fr2.get_column('band')
 

@@ -1,13 +1,13 @@
 from typing import List
-from nrarfcn.tables.bands_fr1 import table_bands_fr1
-from nrarfcn.tables.bands_fr2 import table_bands_fr2
+from nrarfcn.tables import DEFAULT_RELEASE, get_table
 
 
-def get_bands_by_frequency(frequency: float) -> List[str]:
+def get_bands_by_frequency(frequency: float, release_3gpp: int = DEFAULT_RELEASE) -> List[str]:
     """Lists the possible 5G-NR bands of a given frequency in MHz.
 
     Args:
         frequency: The frequency to get the bands of, in MHz.
+        release_3gpp: The 3GPP release to use for table lookup.
 
     Returns:
         A list of the 5G-NR bands that the given frequency is in. Empty list if not in any NR band.
@@ -24,7 +24,7 @@ def get_bands_by_frequency(frequency: float) -> List[str]:
 
     bands = []
 
-    table = table_bands_fr1()
+    table = get_table('bands_fr1', release_3gpp)
 
     for row in table.data:
         ul_min = table.get_cell(row, 'f_ul_low')
@@ -39,7 +39,7 @@ def get_bands_by_frequency(frequency: float) -> List[str]:
         if condition_ul or condition_dl:
             bands.append(table.get_cell(row, 'band'))
 
-    table = table_bands_fr2()
+    table = get_table('bands_fr2', release_3gpp)
 
     for row in table.data:
         ul_dl_min = table.get_cell(row, 'f_ul_low')
