@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'nrarfcn'
-copyright = '2025, Breno Levi'
+copyright = '2026, Breno Levi'
 author = 'Breno Levi'
 
 # The full version, including alpha/beta/rc tags
-release = '2025'
+release = '2026'
 
 
 # -- General configuration ---------------------------------------------------
