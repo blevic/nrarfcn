@@ -1,11 +1,12 @@
-from nrarfcn.tables.freq_nrarfcn import table_freq_nrarfcn
+from nrarfcn.tables import DEFAULT_RELEASE, get_table
 
 
-def get_frequency(nrarfcn: int) -> float:
+def get_frequency(nrarfcn: int, release_3gpp: int = DEFAULT_RELEASE) -> float:
     """Gets the frequency of a given NR-ARFCN, in MHz.
 
     Args:
         nrarfcn: The NR-ARFCN to get the frequency of.
+        release_3gpp: The 3GPP release to use for table lookup.
 
     Returns:
         The frequency of the given NR-ARFCN, in MHz.
@@ -14,7 +15,7 @@ def get_frequency(nrarfcn: int) -> float:
         ValueError: If the NR-ARFCN is not valid.
     """
 
-    table = table_freq_nrarfcn()
+    table = get_table('freq_nrarfcn', release_3gpp)
 
     if not isinstance(nrarfcn, int):
         raise ValueError('NR-ARFCN must be an integer.')
