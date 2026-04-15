@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    nrarfcn.tables.rel17
+   nrarfcn.tables.rel18
    nrarfcn.tables.rel19
 
 Submodules
