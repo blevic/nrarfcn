@@ -17,9 +17,9 @@
 
 [``nrarfcn``](https://github.com/blevic/nrarfcn): a 5G NR-ARFCN calculator, as a Python package.
 
-This is a Python package that calculates the frequency for a given NR-ARFCN, the NR-ARFCN for a given frequency, and related NR band information, according to 3GPP **Rel-17**.
+This is a Python package that calculates the frequency for a given NR-ARFCN, the NR-ARFCN for a given frequency, and related NR band information. 3GPP **Rel-17** remains the default table release, and **Rel-18** / **Rel-19** can be selected with the optional `release_3gpp` argument.
 
-It follows [3GPP TS 38.104](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3202) v17.6.0: "_5G; NR; Base Station (BS) radio transmission and reception_".
+It follows [3GPP TS 38.104](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3202): v17.6.0 by default, with v18.13.0 and v19.4.0 available when requested.
 
 ### Documentation
 
@@ -65,6 +65,9 @@ pip install nrarfcn
 
 >>> nr.get_gscn_range('n92')
 (3584, 3787)
+
+>>> nr.get_frequency_range('n110', release_3gpp=19)
+(1432, 1435)
 ```
 
 ### Contributing
