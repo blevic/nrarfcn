@@ -1,8 +1,3 @@
-.. nrarfcn documentation master file, created by
-   sphinx-quickstart on Thu Jul 14 20:59:06 2022.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Welcome to nrarfcn's documentation!
 ===================================
 
@@ -10,12 +5,15 @@ Welcome to nrarfcn's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   modules
+   nrarfcn.api
+   nrarfcn.tables
 
 nrarfcn
 ===========
 
-A 5G NR-ARFCN calculator, as a Python package, for 3GPP Rel-17.
+A 5G NR-ARFCN calculator, as a Python package.
+
+3GPP Rel-17 is the default table release. Rel-18 and Rel-19 can be selected with the optional ``release_3gpp`` argument.
 
 Visit the project `homepage <https://github.com/blevic/nrarfcn/>`__.
 
@@ -61,6 +59,9 @@ Usage
 
    >>> nr.get_gscn_range('n92')
    (3584, 3787)
+
+   >>> nr.get_frequency_range('n110', release_3gpp=19)
+   (1432, 1435)
 
 Documentation
 ~~~~~~~~~~~~~

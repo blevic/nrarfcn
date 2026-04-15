@@ -7,4 +7,3 @@ nrarfcn
    nrarfcn
    nrarfcn.api
    nrarfcn.tables
-   tests
