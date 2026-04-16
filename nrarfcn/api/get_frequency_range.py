@@ -1,15 +1,16 @@
-from typing import Union
+from typing import Optional, Union
+from nrarfcn.api.lte import get_lte_frequency_range, is_lte_band, lte_release
 from nrarfcn.tables import DEFAULT_RELEASE, get_table
 
 
-def get_frequency_range(band: Union[str, int], direction='', release_3gpp: int = DEFAULT_RELEASE) -> tuple:
+def get_frequency_range(band: Union[str, int], direction='', release_3gpp: Optional[int] = None) -> tuple:
     """Gets the frequency range for a given band, in MHz.
 
     Args:
-        band: The band to get the range for, e.g. 'n12'.
+        band: The band to get the range for, e.g. 'n12' or 'B12'.
         direction: 'dl' or 'ul' to get the range for the downlink or uplink. If not specified, 'dl' is used,
-            except if the band is uplink only.
-        release_3gpp: The 3GPP release to use for table lookup.
+            except if the NR band is uplink only.
+        release_3gpp: The 3GPP release to use for table lookup. NR defaults to Rel-17; LTE defaults to Rel-19.
 
     Returns:
         A tuple with the min frequency in MHz and max frequency in MHz for the given band and direction
@@ -17,6 +18,11 @@ def get_frequency_range(band: Union[str, int], direction='', release_3gpp: int =
     Raises:
         ValueError: If the given band is not a valid band.
     """
+    if is_lte_band(band):
+        return get_lte_frequency_range(band, direction, lte_release(release_3gpp))
+
+    release_3gpp = DEFAULT_RELEASE if release_3gpp is None else release_3gpp
+
     table_fr1 = get_table('bands_fr1', release_3gpp)
     table_fr2 = get_table('bands_fr2', release_3gpp)
 

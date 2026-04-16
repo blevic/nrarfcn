@@ -15,11 +15,11 @@
   </a>
 </p>
 
-[``nrarfcn``](https://github.com/blevic/nrarfcn): a 5G NR-ARFCN calculator, as a Python package.
+[``nrarfcn``](https://github.com/blevic/nrarfcn): a 5G NR-ARFCN and 4G LTE EARFCN calculator, as a Python package.
 
-This is a Python package that calculates the frequency for a given NR-ARFCN, the NR-ARFCN for a given frequency, and related NR band information. 3GPP **Rel-17** remains the default table release, and **Rel-18** / **Rel-19** can be selected with the optional `release_3gpp` argument.
+This is a Python package that calculates the frequency for a given NR-ARFCN or LTE EARFCN, the channel number for a given frequency, and related band information. 3GPP **Rel-17** remains the default NR table release, and **Rel-18** / **Rel-19** can be selected with the optional `release_3gpp` argument. LTE/E-UTRA calculations use **Rel-19** by default.
 
-It follows [3GPP TS 38.104](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3202): v17.6.0 by default, with v18.13.0 and v19.4.0 available when requested.
+It follows [3GPP TS 38.104](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=3202): v17.6.0 by default, with v18.13.0 and v19.4.0 available when requested. For 4G/LTE EARFCN, [3GPP TS 36.104](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=2412) v19.2.0 is used.
 
 ### Documentation
 
@@ -32,6 +32,8 @@ pip install nrarfcn
 ```
 
 ### Usage
+
+#### 5G NR
 
 ```python
 >>> import nrarfcn as nr
@@ -68,6 +70,33 @@ pip install nrarfcn
 
 >>> nr.get_frequency_range('n110', release_3gpp=19)
 (1432, 1435)
+```
+
+#### 4G LTE / E-UTRA
+
+```python
+>>> import nrarfcn as nr
+
+>>> nr.get_frequency_by_lte_earfcn(300)
+2140.0
+
+>>> nr.get_lte_earfcn_by_frequency(2140.0)
+[300, 2250, 4450, 65836, 66736]
+
+>>> nr.get_lte_bands_by_frequency(1850.0)
+['B2', 'B3', 'B9', 'B25', 'B35']
+
+>>> nr.get_band_by_lte_earfcn(300)
+'B1'
+
+>>> nr.get_lte_earfcn_range('B25', direction='ul')
+(26040, 26689)
+
+>>> nr.get_duplex_mode('B66')
+'FDD'
+
+>>> nr.get_frequency_range('B66', direction='dl')
+(2110, 2200)
 ```
 
 ### Contributing

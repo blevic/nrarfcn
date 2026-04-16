@@ -68,6 +68,22 @@ nrarfcn.tables.rel19.gscn\_parameters module
    :undoc-members:
    :show-inheritance:
 
+nrarfcn.tables.rel19.lte\_bands module
+--------------------------------------
+
+.. automodule:: nrarfcn.tables.rel19.lte_bands
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+nrarfcn.tables.rel19.lte\_earfcn module
+---------------------------------------
+
+.. automodule:: nrarfcn.tables.rel19.lte_earfcn
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
