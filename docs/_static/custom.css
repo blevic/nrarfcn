@@ -17,3 +17,7 @@
 .py.function dd {
     margin-bottom: 1.25rem;
 }
+
+div.footer {
+    text-align: center;
+}
