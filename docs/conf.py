@@ -11,6 +11,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
+import re
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
@@ -21,8 +22,22 @@ project = 'nrarfcn'
 copyright = '2026, Breno Levi'
 author = 'Breno Levi'
 
+
+def read_project_version():
+    pyproject_path = os.path.join(os.path.dirname(__file__), '..', 'pyproject.toml')
+
+    with open(pyproject_path, encoding='utf-8') as pyproject_file:
+        pyproject = pyproject_file.read()
+
+    version_match = re.search(r'^version = "([^"]+)"$', pyproject, re.MULTILINE)
+    if not version_match:
+        raise RuntimeError('Could not find project version in pyproject.toml')
+
+    return version_match.group(1)
+
+
 # The full version, including alpha/beta/rc tags
-release = '2026'
+release = read_project_version()
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,6 +46,7 @@ release = '2026'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon']
+html_css_files = ['custom.css']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -38,7 +54,7 @@ templates_path = ['_templates']
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'modules.rst', 'nrarfcn.rst', 'tests.rst']
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -46,7 +62,12 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'bizstyle'
+html_theme = 'alabaster'
+html_theme_options = {
+    'description': f'Version {release}',
+    'show_powered_by': False,
+}
+html_show_sphinx = False
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

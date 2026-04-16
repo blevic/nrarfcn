@@ -8,3 +8,8 @@ from nrarfcn.api.get_frequency_range import get_frequency_range
 from nrarfcn.api.get_gscn_by_frequency import get_gscn_by_frequency
 from nrarfcn.api.get_frequency_by_gscn import get_frequency_by_gscn
 from nrarfcn.api.get_gscn_range import get_gscn_range
+from nrarfcn.api.get_frequency_by_lte_earfcn import get_frequency_by_lte_earfcn
+from nrarfcn.api.get_lte_earfcn_by_frequency import get_lte_earfcn_by_frequency
+from nrarfcn.api.get_lte_bands_by_frequency import get_lte_bands_by_frequency
+from nrarfcn.api.get_band_by_lte_earfcn import get_band_by_lte_earfcn
+from nrarfcn.api.get_lte_earfcn_range import get_lte_earfcn_range

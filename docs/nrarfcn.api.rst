@@ -1,93 +1,54 @@
-nrarfcn.api package
-==================
+Public API
+==========
 
-Submodules
-----------
+The public functions are available from the top-level ``nrarfcn`` package.
 
-nrarfcn.api.get\_bands\_by\_frequency module
--------------------------------------------
+Release selection
+-----------------
 
-.. automodule:: nrarfcn.api.get_bands_by_frequency
-   :members:
-   :undoc-members:
-   :show-inheritance:
+3GPP Rel-17 is used by default for NR. To use another supported NR
+release, pass ``release_3gpp`` to any API function. LTE/E-UTRA APIs use
+Rel-19 by default.
 
-nrarfcn.api.get\_bands\_by\_nrarfcn module
------------------------------------------
+.. code:: python
 
-.. automodule:: nrarfcn.api.get_bands_by_nrarfcn
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   >>> import nrarfcn as nr
+   >>> nr.get_frequency_range('n110', release_3gpp=19)
+   (1432, 1435)
+   >>> nr.get_frequency_by_lte_earfcn(300)
+   2140.0
 
-nrarfcn.api.get\_duplex\_mode module
------------------------------------
+Functions
+---------
 
-.. automodule:: nrarfcn.api.get_duplex_mode
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. currentmodule:: nrarfcn
 
-nrarfcn.api.get\_frequency module
---------------------------------
+.. autofunction:: get_frequency
 
-.. automodule:: nrarfcn.api.get_frequency
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. autofunction:: get_nrarfcn
 
-nrarfcn.api.get\_frequency\_by\_gscn module
-------------------------------------------
+.. autofunction:: get_bands_by_frequency
 
-.. automodule:: nrarfcn.api.get_frequency_by_gscn
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. autofunction:: get_bands_by_nrarfcn
 
-nrarfcn.api.get\_frequency\_range module
----------------------------------------
+.. autofunction:: get_duplex_mode
 
-.. automodule:: nrarfcn.api.get_frequency_range
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. autofunction:: get_nrarfcn_range
 
-nrarfcn.api.get\_gscn\_by\_frequency module
-------------------------------------------
+.. autofunction:: get_frequency_range
 
-.. automodule:: nrarfcn.api.get_gscn_by_frequency
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. autofunction:: get_gscn_by_frequency
 
-nrarfcn.api.get\_gscn\_range module
-----------------------------------
+.. autofunction:: get_frequency_by_gscn
 
-.. automodule:: nrarfcn.api.get_gscn_range
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. autofunction:: get_gscn_range
 
-nrarfcn.api.get\_nrarfcn module
-------------------------------
+.. autofunction:: get_frequency_by_lte_earfcn
 
-.. automodule:: nrarfcn.api.get_nrarfcn
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. autofunction:: get_lte_earfcn_by_frequency
 
-nrarfcn.api.get\_nrarfcn\_range module
--------------------------------------
+.. autofunction:: get_lte_bands_by_frequency
 
-.. automodule:: nrarfcn.api.get_nrarfcn_range
-   :members:
-   :undoc-members:
-   :show-inheritance:
+.. autofunction:: get_band_by_lte_earfcn
 
-Module contents
---------------
-
-.. automodule:: nrarfcn.api
-   :members:
-   :undoc-members:
-   :show-inheritance: 
+.. autofunction:: get_lte_earfcn_range
